@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultar Citas - Consultorio Médico</title>
+  <link rel="stylesheet" href="est_consul_cit.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Consultar Citas</h2>
+    <form>
+      <label for="nombre">Buscar por nombre:</label>
+      <input type="text" id="nombre" name="nombre">
+      
+      <label for="fecha">Buscar por fecha:</label>
+      <input type="date" id="fecha" name="fecha">
+      
+      <div class="resultados">
+        <p>Resultados de la búsqueda:</p>
+        <ul>
+          <li>
+            <div class="cita">
+              <p>Nombre del paciente 1</p>
+              <p>Fecha: [ / / ]</p>
+              <a href="#">Receta: Descargar</a>
+            </div>
+          </li>
+          <li>
+            <div class="cita">
+              <p>Nombre del paciente 2</p>
+              <p>Fecha: [ / / ]</p>
+              <a href="#">Receta: Descargar</a>
+            </div>
+          </li>
+          <!-- Aquí se generarán dinámicamente los resultados de búsqueda -->
+        </ul>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
