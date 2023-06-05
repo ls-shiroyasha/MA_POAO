@@ -1,0 +1,30 @@
+div{
+    margin: auto;    
+    background-color: rgb(130, 163, 193);
+    padding: 400px;
+}
+
+.div main{
+    background-color: rgb(17, 194, 26);
+}
+
+h1{
+    margin: auto;
+    color: #201976;    
+}
+
+.nombre {
+    margin: auto;    
+}
+
+.carrera {
+    margin: auto;
+}
+
+.edad {
+    margin: auto;
+}
+
+.calificacion {
+    margin: auto;
+}
