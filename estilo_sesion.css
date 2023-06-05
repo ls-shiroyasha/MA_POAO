@@ -1,8 +1,12 @@
-.container {    
+body{
+  background-color: #1689d1;
+}
+.container {
+    background-color: #e6f5f3;    
     width: 300px;    
     margin: 90px 350px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #1eff00;
     border-radius: 5px;
   }
   

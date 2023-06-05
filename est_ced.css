@@ -1,8 +1,12 @@
+body{
+  background-color: #1689d1;
+}
 .container {
+    background-color: #e6f5f3;
     width: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #1eff00;
     border-radius: 5px;
   }
   
@@ -34,6 +38,7 @@
   
   button[type="submit"],
   button#descargarPDF {
+    margin-right: auto;
     padding: 10px;
     background-color: #4CAF50;
     color: white;
@@ -43,7 +48,8 @@
   }
   
   button[type="submit"]:hover,
-  button#descargarPDF:hover {
+  button#descargarPDF:hover{
     background-color: #45a049;
+    margin-right: auto;
   }
   
