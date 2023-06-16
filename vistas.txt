@@ -1,0 +1,16 @@
+Las vistas son una de las capas que usan los frameworks
+
+Trata de la seperación del código según sus responsabilidades. En este caso, las vistas
+mantienen el código de lo que sería la capa de presentación
+
+Como capa de presentación, las vistas se encargarn de realizar salidfa de la  aplciandio
+
+
+Motor de Plantillas
+
+Las utilizamos para reutilizar los elementos estáticos de las vistas
+
+Mientras se cambian los elementos dinámicos basados de las peticiones web
+
+Aportando velocidad de carga y procesamiento de las vistas por parte del framework
+
