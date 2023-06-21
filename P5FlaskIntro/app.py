@@ -1,5 +1,5 @@
 #Importación del framework y de MySQL
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 
 #Inicialización del APP/servidor
@@ -8,7 +8,9 @@ app.config['MYSQL_HOST']='localhost'#BD conecta al host
 app.config['MYSQL_USER']='root'
 app.config['MYSQL_PASSWORD']=''
 app.config['MYSQL_DB']='dbFlask'
+app.secret_key = "clave_secreta"#Token para validación por cuestiones de seguridad al mandar datos entre la BD y la págia web
 mysql = MySQL(app)
+
 
 
 #Declaración de las ruta http://localhost:5000
@@ -20,11 +22,19 @@ def index():
 @app.route('/guardar', methods = ['POST'])
 def guardar():
     if request.method == 'POST':
-        titulo = request.form['txtTitulo']
-        artista = request.form['txtArtista']
-        anio = request.form['txtAnio']
-        print(titulo, artista, anio)
-    return 'Los datos llegaron'
+        #Pasamos a variables el contenido de los inputs
+        Vtitulo = request.form['txtTitulo']
+        Vartista = request.form['txtArtista']
+        Vanio = request.form['txtAnio']
+        #Conectar y ejecutar el insert
+        #El objeto tipo cursor llamado CS
+        CS = mysql.connection.cursor()   #(%s, %s, %s) --> Datos indefinidos que se pasan al siguiente parámetro de execute
+        CS.execute('insert into tbalbums(titulo, artista, anio) values(%s, %s, %s)', (Vtitulo, Vartista, Vanio))
+        mysql.connection.commit()
+        #print(titulo, artista, anio)
+    
+    flash('El album fue agregado correctamente')
+    return redirect(url_for('index'))#Redireccionamos a una url (la que llammos index)
 
 
 @app.route('/eliminar')
