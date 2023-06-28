@@ -34,7 +34,7 @@ def guardar():
         #print(titulo, artista, anio)
     
     flash('El album fue agregado correctamente')
-    return redirect(url_for('index'))#Redireccionamos a una url (la que llammos index)
+    return redirect(url_for('index'))#Redireccionamos a una url (la que llamamos index)
 
 
 @app.route('/eliminar')
