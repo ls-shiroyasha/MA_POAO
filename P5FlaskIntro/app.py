@@ -40,6 +40,16 @@ def guardar():
     flash('El album fue agregado correctamente')
     return redirect(url_for('index'))#Redireccionamos a una url (la que llamamos index)
 
+@app.route('/editar/<id>')
+def editar(id):
+    cursoId = mysql.connection.cursor()
+    cursoId.execute('select * from tbalbums where id=%s', (id,))
+    consultId = cursoId.fetchone()
+    return render_template('editarAlbum.html', album = consultId)
+
+@app.route('/actualizar/<id>', methods = ['POST'])
+def actualizar(id):
+    
 
 @app.route('/eliminar')
 def eliminar():
