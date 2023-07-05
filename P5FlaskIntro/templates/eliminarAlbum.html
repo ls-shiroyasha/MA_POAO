@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar</title>
+</head>
+<body>
+    <h1> Album a eliminar: </h1>
+    <br>
+    <br>
+    <form action="/borrar/{{album.0}}" method="POST">
+        <h3>¿Está seguro de eliminar el siguiente album?</h3>
+        <br>
+        <input type="text" name="txtTitulo" value="{{album.1}}" disabled>
+        <input type="text" name="txtArtista" value="{{album.2}}" disabled>
+        <input type="number" name="txtAnio" value="{{album.3}}" disabled>
+        <button type="submit">Borrar</button>
+    </form>
+</body>
+</html>

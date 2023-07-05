@@ -62,9 +62,21 @@ def actualizar(id):
     flash('Se actualizo el Album ' + Vtitulo)
     return redirect(url_for('index'))
 
-@app.route('/eliminar')
-def eliminar():
-    return "Se elimino en la BD"
+@app.route('/eliminar/<id>')####
+def eliminar(id):####
+    cursoId = mysql.connection.cursor()
+    cursoId.execute('select * from tbalbums where id=%s', (id,))
+    consultId = cursoId.fetchone()
+    return render_template('eliminarAlbum.html', album = consultId)
+
+@app.route('/borrar/<id>', methods = ['POST'])
+def borrar(id):
+    if request.method == 'POST':
+        curAct = mysql.connection.cursor()
+        curAct.execute('delete from tbalbums where id = %s', (id,))
+        mysql.connection.commit()
+    flash('Se elimino el album ')
+    return redirect(url_for('index'))
 
 
 #Hacer que el servidor trabaje en el puerto especifícado: 5000 para este caso
