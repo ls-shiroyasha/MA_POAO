@@ -49,7 +49,18 @@ def editar(id):
 
 @app.route('/actualizar/<id>', methods = ['POST'])
 def actualizar(id):
-    
+    if request.method == 'POST':
+        #Pasamos a variables el contenido de los inputs
+        Vtitulo = request.form['txtTitulo']
+        Vartista = request.form['txtArtista']
+        Vanio = request.form['txtAnio']
+        #Conectar y ejecutar el insert
+        #El objeto tipo cursor llamado CS
+        curAct = mysql.connection.cursor()   #(%s, %s, %s) --> Datos indefinidos que se pasan al siguiente parámetro de execute
+        curAct.execute('update tbalbums set titulo = %s, artista = %s, anio = %s where id = %s',(Vtitulo, Vartista, Vanio, id))
+        mysql.connection.commit()
+    flash('Se actualizo el Album ' + Vtitulo)
+    return redirect(url_for('index'))
 
 @app.route('/eliminar')
 def eliminar():
