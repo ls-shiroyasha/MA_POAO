@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar por nombre</title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Buscar por nombre</h1>
+    <br>    
+    <form action="/mostrar" method="POST">
+        <input type="text" name="txtFruta">
+        <button type="submit">buscar</button>        
+    </form>
+    <a href="/">Volver</a>
+    <a href="/buscar">Buscar por nombre</a>
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes%}
+            {% for msj in mensajes %}
+                <h3> {{ msj }} </h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <br>
+    <h1>Registros</h1>
+    <table>
+        <thead>
+            <tr><!--Fila-->
+                <td>Id: </td><!--Columna-->
+                <td>Fruta: </td><!--Columna-->
+                <td>Temporada: </td><!--Columna-->
+                <td>Precio: </td><!--Columna-->
+                <td>Stock: </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for frut in listFrutas%}
+            <tr>                
+                <td>{{ frut.0 }}</td>
+                <td>{{ frut.1 }}</td>
+                <td>{{ frut.2 }}</td>
+                <td>{{ frut.3 }}</td>
+                <td>{{ frut.4 }}</td>
+                <td>
+                    <a href=/editar/{{frut.0}}>Editar </a>
+                    <a href=/eliminar/{{frut.0}}>Borrar </a>           
+                </td>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>    
+</body>
+</html>
+
+<!--
+
+    LIKE %?%
+-->

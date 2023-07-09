@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar</title>
+</head>
+<body>
+    <h1> Registro a eliminar: </h1>
+    <br>
+    <br>
+    <form action="/borrar/{{frut.0}}" method="POST">
+        <h3>¿Está seguro de eliminar el siguiente registro?</h3>
+        <br>
+        <input type="text" name="txtFruta" value="{{frut.1}}" disabled>
+        <input type="text" name="txtTemporada" value="{{frut.2}}" disabled>
+        <input type="number" name="txtPrecio" value="{{frut.3}}" disabled>
+        <input type="number" name="txtStock" value="{{frut.4}}" disabled>
+        <button type="submit">Borrar</button>
+    </form>
+</body>
+</html>
