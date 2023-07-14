@@ -9,12 +9,20 @@
     <br>
     <br>
     <h1>Florería</h1>
-    <br>    
+    <br>
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes%}
+            {% for msj in mensajes %}
+                <h3> {{ msj }} </h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}    
     <form action="/guardar" method="POST">
         <input type="text" name="txtNombre" placeholder="Nombre">
         <input type="text" name="txtCantidad" placeholder="Cantidad">
         <input type="number" name="txtPrecio" placeholder="Precio">        
         <button type="submit">Guardar</button>        
-    </form>    
+    </form>
+    <a href=/buscar>Búsqueda por flor</a>
 </body>
 </html>

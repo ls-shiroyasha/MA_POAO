@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar por nombre</title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Buscar por nombre</h1>
+    <br>    
+    <form action="/mostrar" method="POST">
+        <input type="text" name="txtFlor">
+        <button type="submit">buscar</button>        
+    </form>
+    <a href="/">Volver</a>
+    <a href="/buscar">Buscar por nombre</a>
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes%}
+            {% for msj in mensajes %}
+                <h3> {{ msj }} </h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <br>
+    <h1>Registros</h1>
+    <table>
+        <thead>
+            <tr><!--Fila-->
+                <td>Id: </td><!--Columna-->
+                <td>Nombre: </td><!--Columna-->
+                <td>Cantidad: </td><!--Columna-->
+                <td>Precio: </td><!--Columna-->                
+            </tr>
+        </thead>
+        <tbody>
+            {% for flor in listFlores%}
+            <tr>                
+                <td>{{ flor.0 }}</td>
+                <td>{{ flor.1 }}</td>
+                <td>{{ flor.2 }}</td>
+                <td>{{ flor.3 }}</td>
+                <td>{{ flor.4 }}</td>
+                <td>
+                    <a href=/editar/{{flor.0}}>Editar </a>
+                    <a href=/eliminar/{{flor.0}}>Borrar </a>           
+                </td>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>    
+</body>
+</html>
